@@ -82,7 +82,7 @@ export default function Home() {
   } 
 
 
-
+// function to initiate checkout sequence for Stripe
   function checkout () {
     initiateCheckout({
       lineItems: cartItems.map(item =>{
