@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
 import products from '../products.json'
+import { initiateCheckout } from "@/lib/payment";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,7 +45,13 @@ export default function Home() {
                 <p>{description}</p>
               </a>
               <p><button className={styles.button} onClick={()=>{
-                console.log('Buy')
+                // console.log('Buy')
+                initiateCheckout({
+                  lineItems:[
+                    {price:id,
+                    quantity:1}
+                  ]
+                });
               }}>Buy Now</button></p>
               </li>
 
