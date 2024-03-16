@@ -3,9 +3,12 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
+import products from '../products.json'
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  console.log ('prducts',products);
   return (
     <>
       <Head>
@@ -15,26 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        {/* <div className={styles.description}>
-        
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{" "}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div> */}
+       
 
         <div className={styles.container}>
           <Head>
@@ -46,13 +30,13 @@ export default function Home() {
          <p> The best space jellyfish swag on the web</p><br />
         </div>
 
-        <div className={styles.grid}>
+        <ul className={styles.grid}>
+       
+        <li className={styles.card}>
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
             
+          
           >
             <img src="/images/mario.jpg" alt = "Space Mario"/>
             <h3>
@@ -62,12 +46,12 @@ export default function Home() {
               Find in-depth information about Next.js features and&nbsp;API.
             </p>
           </a>
-
+          </li>
+          <li  className={styles.card}>
           <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+           
+          
           >
                <img src="/images/peach.jpg" alt = "Space Mario"/>
              <h3>
@@ -77,13 +61,12 @@ export default function Home() {
               Add some flare to your laptop with a sticker of Cosmo the Space Jellyfish
             </p>
           </a>
-
-
+          </li>
+          <li className={styles.card}>
           <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            
+          
           >
                <img src="/images/hammer.jpg" alt = "Space Mario"/>
              <h3>
@@ -93,10 +76,10 @@ export default function Home() {
               Show your love for Cosmo with a tshirt and sticker combo pack!
             </p>
           </a>
-
+          </li>
       
 
-        </div>
+        </ul>
       </main>
     </>
   );
