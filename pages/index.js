@@ -8,7 +8,8 @@ import products from '../products.json'
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  console.log ('prducts',products);
+  //console.log ('prducts',products);
+  console.log('NEXT_PUBLIC_STRIPE_API_KEY',process.env.NEXT_PUBLIC_STRIPE_API_KEY)
   return (
     <>
       <Head>
@@ -42,13 +43,16 @@ export default function Home() {
                 <p>${ price}</p>  
                 <p>{description}</p>
               </a>
+              <p><button className={styles.button} onClick={()=>{
+                console.log('Buy')
+              }}>Buy Now</button></p>
               </li>
 
             )
 
           })}
        
-        <li className={styles.card}>
+          {/* <li className={styles.card}>
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             
@@ -92,7 +96,7 @@ export default function Home() {
               Show your love for Cosmo with a tshirt and sticker combo pack!
             </p>
           </a>
-          </li>
+          </li> */}
       
 
         </ul>
