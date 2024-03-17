@@ -11,7 +11,7 @@
         "title":"Space Jelly Stickers",
         "description": "Add some flare to your laptop with a sticker of Cosmo the Space Jellyfish",
         "image":"/images/peach.jpg",
-        "price":20.00
+        "price":10.00
 
     }, 
     {
@@ -19,7 +19,7 @@
         "title":"Space Jelly Combo",
         "description": "Show your love for Cosmo with a tshirt and sticker combo pack",
         "image":"/images/hammer.jpg",
-        "price":15.00
+        "price":10.00
 
     }
     
