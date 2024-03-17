@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, createContext, useContext,useEffect } from 'react';
 import products from '../products.json'
 import { initiateCheckout } from "@/lib/payment";
 
@@ -7,12 +7,27 @@ const defaultCart = {
     products: {}
   }
 
+
+export const CartContext = createContext();
 // the "use" prefix addition allow us to get access to React internals - so we 
 // use the useState hook! Homepage will have access to the useState function!!
 
-export default function useCart(){
+export function useCartState(){
     const [cart,updateCart] = useState(defaultCart);
-   
+    
+    useEffect(()=>{
+        const stateFromStorage  = window.localStorage.getItem('spacejelly_cart');
+        console.log('spacejelly',stateFromStorage)
+        const data = stateFromStorage && JSON.parse(stateFromStorage);
+        if (data) {
+            updateCart(data);
+        }
+    }, [])    
+
+    useEffect(()=>{
+        const data  = JSON.stringify(cart);
+        window.localStorage.setItem('spacejelly_cart',data)
+    }, [cart])
 
       // add pricePerItem from the Cart 
   const cartItems = Object.keys(cart.products).map (key =>{
@@ -120,4 +135,10 @@ export default function useCart(){
         addToCart,
         checkout
     };
+}
+
+
+export function useCart() {
+    const cart = useContext (CartContext);
+    return cart ;
 }

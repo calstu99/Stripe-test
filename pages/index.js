@@ -1,13 +1,14 @@
 import {useState, useMemo} from 'react';
 import Head from "next/head";
 import Image from "next/image";
+import {FaShoppingCart} from 'react-icons/fa';
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
-import useCart from '@/hooks/use-cart';
+import {useCart, useCartState} from '@/hooks/use-cart';
 
 import products from '../products.json'
-import { initiateCheckout } from "@/lib/payment";
+
 
 const defaultCart = {
   products: {}
@@ -17,6 +18,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
+  // const {subtotal,totalItems,addToCart,checkout} = useCartState();
   const {subtotal,totalItems,addToCart,checkout} = useCart();
   //console.log('cartTest',cartTest);
   // const [cart,updateCart] = useState(defaultCart);
@@ -133,3 +135,8 @@ export default function Home() {
 
 // Important info about React 18 and useState, useEffects.
 //https://www.techiediaries.com/react-18-useeffect/#:~:text=The%20standard%20behavior%20of%20the,effect%20twice%20instead%20of%20once.
+
+
+
+// Context provides a way to pass data through the component tree without having to pass props down manualy at every level.
+
