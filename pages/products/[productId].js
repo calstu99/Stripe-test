@@ -5,12 +5,12 @@ import products from '../../products.json'
 
 export default function Product({product})  {
 
-const {id, title, description, image, price} = product;
+// const {id, title, description, image, price} = product;
 
 return (
 <div className = {styles.Product}> 
     <Head>
-        <title>{title} - space Jelly</title>
+        <title> Space Jelly</title>
         <link rel = "icon" href = "/favicon.ico" />
     </Head>
 
@@ -35,7 +35,7 @@ return (
 
 
                 >
-                    <img src={image} />
+                    <img src="http://source.unsplash.com/random/500x500" />
                     <h3>
                         Space Jelly Combo
                     </h3>
