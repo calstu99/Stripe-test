@@ -18,34 +18,22 @@ const {subtotal,checkout} = useCart();
         <h1  >
               Space Jelly Shop
         </h1>
-        <h1  >
-              Home
-        </h1>
-        <h1  >
-              Best deals
-        </h1>
-
-      
-        <p className={styles.buybutton} >
-           
-           </p>
-
+       
+    
           <p className= {styles.buybutton} >
 
-              <button onClick={checkout}>
-                  <FaShoppingCart />${subtotal}
+              <button  onClick={checkout}>
+                  <FaShoppingCart size={40} />  ${subtotal}
+            
               </button>
+             
           </p>
         </div>  
       
         </ul>
       
       </nav>
-
-
-
-
-         
+  
     
   )
 }
