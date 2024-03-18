@@ -1,0 +1,62 @@
+This code is based on course from Colby Fayock 
+https://github.com/colbyfayock/next-spacejelly-ecommerce-starter
+
+
+Access to Stripe
+https://www.youtube.com/watch?v=uQAf6huBIks
+
+*** 
+https://www.youtube.com/watch?v=YQjB1ZjTj8c
+
+Build Next.js 14+ E-Commerce Web App with Stripe Payment and Tailwind CSS
+*** https://www.youtube.com/watch?v=-fV7D8HB3u4******
+
+
+Using sample code from Github to integrate Stripe
+
+*** 
+
+https://docs.stripe.com/testing
+
+Stripe test data - https://docs.stripe.com/testing
+
+
+Using Github
+
+Push to Github repository
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/calstu99/testing1.git
+git push -u origin main
+
+
+**** Important If you want to change the URL of the existing remote repository, 
+you can update it using the following command:
+
+***********************************************
+$git remote set-url origin https://new-url-here
+
+***********************************************
+
+To resolve this issue when you push ( src refspec main does not match), you can follow these steps:
+1) Ensure Local Branch Exists:
+Make sure that the branch you are trying to push exists in your local repository.
+ You can create a new branch or switch to an existing branch using git checkout -b <branch-name> or git checkout <branch-name>.
+
+2) Add and Commit Changes:
+Add your changes to the staging area using git add . or git add <file> and commit them using git commit -m "Your commit message".
+
+3) Set Upstream Branch:
+If the branch does not exist on the remote repository, you can set the upstream branch by pushing with -u or --set-upstream option: git push -u origin <branch-name>.
+
+4) Push Changes:
+Finally, push your changes to the remote repository by running: git push origin <branch-name>.
+
+
+********* Name of file in Vecel******
+https://stripe-test-mocha.vercel.app/
+
+Deployed to Vercel: https://stripe-test-mocha.vercel.app/
