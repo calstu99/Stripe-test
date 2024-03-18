@@ -1,62 +1,83 @@
 import Head from "next/head"
 import styles from '../../styles/Product.module.css'
+import { useCart} from '@/hooks/use-cart';
 
 import products from '../../products.json'
 
-export default function Product({product})  {
+export default function Product({ product }) {
+    console.log ('product',product)
 
-// const {id, title, description, image, price} = product;
+    const {id, title, description, image, price} = product;
+    const {addToCart} = useCart();
 
-return (
-<div className = {styles.Product}> 
-    <Head>
-        <title> Space Jelly</title>
-        <link rel = "icon" href = "/favicon.ico" />
-    </Head>
+    // const id = 'productId';
+    // const title = 'Product Title';
+    // const description = 'Product description';
+    // const image = 'http://source.unsplash.com/random/500x500';
+    // const price = 1.00;
+
+    return (
+        <div className={styles.container}>
+            <Head>
+                <title> {title}Space Jelly</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
             <main className={`${styles.main}`}>
-
-                <h1 className={styles.title}>Space Jelly Shop</h1><br />
-
-                <p> The best space jellyfish swag on the universe!</p><br />
-
-                <p className={styles.title}>
-                    <strong>Items:</strong>15djdjdkd
-                    <br />
-                    <strong>Total Cost:</strong> $10ddd
-                    <br />
+                <div className={styles.productImage}>
+                    <img src={image}/>
+                </div>
+                <div >
+                    <h1 className={styles.title}>Space Jelly Shop</h1><br />
+                    <p className= {styles.description}>{title}</p><br />
+                    <p className= {styles.description}>{description}</p><br />
+                    <p className= {styles.description}>${price.toFixed(2)}</p>
                     <br />
 
-                </p>
-
-
-                <a
-                    href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-
-
-                >
-                    <img src="http://source.unsplash.com/random/500x500" />
-                    <h3>
-                        Space Jelly Combo
-                    </h3>
-                    <p>
-                       
-                    </p>
-                </a>
+                    <button className={styles.button} onClick={() => {
+                        addToCart ({
+                            id
+                        })
+                    }}>Buy</button>
+                </div>
 
             </main>
-
-
-
-</div>
+        </div>
 
     )
 
+}
 
-    
-
-
-
-
+// product available as a prop to the product page
+export async function getStaticProps ({params}){
+    const product  = products.find(({id})=>id === params.productId)
+    console.log('params', params)
+    return {
+        props:{
+            // product: {}
+            product
+        }
+    }
 
 }
+
+// generate static paths (will also need static props to be defined to work together!)
+export async function getStaticPaths(){
+ const paths = products.map((product)=> {
+    return {
+        params: {
+            productId:product.id
+        }
+    }
+ })
+
+
+    return {
+        paths:paths,
+        fallback:false
+    }
+}
+
+
+
+// dynamic routes

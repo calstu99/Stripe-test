@@ -1,32 +1,32 @@
-import {useState, useMemo} from 'react';
+import { useState, useMemo } from 'react';
 import Head from "next/head";
+import Link from 'next/link';
 import Image from "next/image";
-import {FaShoppingCart} from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
-import {useCart, useCartState} from '@/hooks/use-cart';
-
+import { useCart} from '@/hooks/use-cart';
 import products from '../products.json'
 
 
-const defaultCart = {
-  products: {}
-}
+// const defaultCart = {
+//   products: {}
+// }
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
-  // const {subtotal,totalItems,addToCart,checkout} = useCartState();
-  const {subtotal,totalItems,addToCart,checkout} = useCart();
+  const { subtotal, totalItems, addToCart, checkout } = useCart();
   //console.log('cartTest',cartTest);
-  // const [cart,updateCart] = useState(defaultCart);
+
+  //const [cart,updateCart] = useState(defaultCart);
   //console.log('cart',cart);
 
 
- //console.log ('prducts',products);
- //console.log('NEXT_PUBLIC_STRIPE_API_KEY',process.env.NEXT_PUBLIC_STRIPE_API_KEY)
+  //console.log ('products',products);
+  //console.log('NEXT_PUBLIC_STRIPE_API_KEY',process.env.NEXT_PUBLIC_STRIPE_API_KEY)
   return (
     <>
       <Head>
@@ -43,7 +43,7 @@ export default function Home() {
         <p> The best space jellyfish swag on the universe!</p><br />
 
         <p className={styles.title}>
-          <strong>Items:</strong>{totalItems }
+          <strong>Items:</strong>{totalItems}
           <br />
           <strong>Total Cost:</strong> ${subtotal}
           <br />
@@ -58,12 +58,20 @@ export default function Home() {
             const { id, title, price, description, image } = product;
             return (
               <li key={id} className={styles.card}>
-                <a href="#">
+                <Link href={`/products/${id}`}>
+                
+                 <img src={image} alt={title} />
+                  <h3>{title}</h3>
+                  <p>${price}</p>
+                  <p>{description}</p>
+                </Link>
+                <br />
+                {/* <a href="#">
                   <img src={image} alt={title} />
                   <h3>{title}</h3>
                   <p>${price}</p>
                   <p>{description}</p>
-                </a><br />
+                </a><br /> */}
                 <p><button className={styles.button} onClick={() => {
                   addToCart({
                     id
@@ -140,3 +148,4 @@ export default function Home() {
 
 // Context provides a way to pass data through the component tree without having to pass props down manualy at every level.
 
+// The spread operator in JavaScript, denoted by three dots (...), is a powerful feature that allows you to expand or spread arrays and objects into multiple elements.

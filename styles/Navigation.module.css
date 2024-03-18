@@ -8,6 +8,15 @@
   color: #fff;
 }
 
+.navTitle {
+   
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    font-size: 1.875em; /* 30px/16=1.875em */
+    max-width: var(--max-width); 
+}
+
 .nav-links a {
   color: #fff;
 }
@@ -71,8 +80,6 @@
  
   justify-content: space-between;
   background-color: teal;
-
- 
   margin-left: 60vw;
   font-size: 1rem;
   cursor: pointer;
