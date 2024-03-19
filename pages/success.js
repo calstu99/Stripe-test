@@ -31,7 +31,7 @@ export default function SuccessPage() {
     return (
       <div>
         <h1>Thank you for your purchase!</h1>
-        <p>You will be redirected to the home page in 10 seconds.</p>
+        <p>You will be redirected to the home page in 5 seconds.</p>
       </div>
     );
   }
